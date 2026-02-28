@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		068804C0FC40B1CD9139B0B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BF1F297089D780B7637E1 /* ContentView.swift */; };
+		06B406CE5D78295F86D2E7AB /* GameManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04CB07D7D44209273E529FE /* GameManagerTests.swift */; };
+		3AB645D9AD712AFEFD7750C9 /* RoleTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D7CEAB3B350BA52E8CA508 /* RoleTypeTests.swift */; };
+		3D8C58E2B0CD401505DCAF7C /* NightPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C615DF1DF3C12E1E6F4505 /* NightPhaseView.swift */; };
+		54CFE18A4C697B7CA54D64D2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D08CE6C370F6478EE0E45F /* Player.swift */; };
+		583AF76649525FC65361DF7A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B937979B80D83939DB1732 /* GameManager.swift */; };
+		5F90BAF6443255B31D1F603E /* InitialSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B2BE816CD27B3FA63D46E0 /* InitialSetupView.swift */; };
+		60335445DA228A8860252AA3 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3537BE925C3BC9DACE3FC9 /* PlayerTests.swift */; };
+		62A3E5722441DCFC9A94A872 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A330FC50215BF44F636C94D /* GameSettings.swift */; };
+		757B9837460F1ABB7A9F7141 /* DayPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279073603C5639AC9E0096A4 /* DayPhaseView.swift */; };
+		A35CA0EFF5986B6983C0411C /* ConfirmSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C108D10FD81C2F63C44118 /* ConfirmSetupView.swift */; };
+		ADAFFF524FC881A372CBD668 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843EB99DA4BD4A476EAFF90 /* GameViewModel.swift */; };
+		AFDA477D07305B0E105BE104 /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8140AF61765FED43C9D76 /* GameTypes.swift */; };
+		B5F4523365F56238DBF75384 /* WerewolfGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA506216F759219F30096F2 /* WerewolfGameApp.swift */; };
+		C7F03EB051E6BDB214C46443 /* RoleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA823F8B73199179E495BF72 /* RoleType.swift */; };
+		CB194981E5EA072A13009025 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F7F16D2A0CB7CD6202E25 /* GameOverView.swift */; };
+		D8F35A54A2D2E6FFE2856413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 995D959A3BEA193DEC6118E5 /* Assets.xcassets */; };
+		AA1111111111111111111111 /* GameHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2222222222222222222222 /* GameHistoryView.swift */; };
+		AA3333333333333333333333 /* GameHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4444444444444444444444 /* GameHistoryDetailView.swift */; };
+		E68D70EDE08D495E0FA33A35 /* RoleSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721680B69261B20FBFBF1204 /* RoleSetupView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF1F7D230E548045C1C610C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0AE3D6356969DF423C6559D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5976DC47654AAD102A1514EA;
+			remoteInfo = WerewolfGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D3537BE925C3BC9DACE3FC9 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
+		14B2BE816CD27B3FA63D46E0 /* InitialSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSetupView.swift; sourceTree = "<group>"; };
+		1843EB99DA4BD4A476EAFF90 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		279073603C5639AC9E0096A4 /* DayPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPhaseView.swift; sourceTree = "<group>"; };
+		286BF1F297089D780B7637E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2A330FC50215BF44F636C94D /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
+		3D3F7F16D2A0CB7CD6202E25 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		62D08CE6C370F6478EE0E45F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		721680B69261B20FBFBF1204 /* RoleSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSetupView.swift; sourceTree = "<group>"; };
+		75C615DF1DF3C12E1E6F4505 /* NightPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightPhaseView.swift; sourceTree = "<group>"; };
+		98B937979B80D83939DB1732 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		995D959A3BEA193DEC6118E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F73E3812220953E9F46AE51 /* WerewolfGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WerewolfGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B04CB07D7D44209273E529FE /* GameManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagerTests.swift; sourceTree = "<group>"; };
+		BBA506216F759219F30096F2 /* WerewolfGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WerewolfGameApp.swift; sourceTree = "<group>"; };
+		C3C108D10FD81C2F63C44118 /* ConfirmSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSetupView.swift; sourceTree = "<group>"; };
+		CED8140AF61765FED43C9D76 /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
+		D1D7CEAB3B350BA52E8CA508 /* RoleTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTypeTests.swift; sourceTree = "<group>"; };
+		DA823F8B73199179E495BF72 /* RoleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleType.swift; sourceTree = "<group>"; };
+		F365659D52AE1521ACCC1140 /* WerewolfGameTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = WerewolfGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA2222222222222222222222 /* GameHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryView.swift; sourceTree = "<group>"; };
+		AA4444444444444444444444 /* GameHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryDetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		18BC87D4AD3B1DD9DF32D0F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F73E3812220953E9F46AE51 /* WerewolfGame.app */,
+				F365659D52AE1521ACCC1140 /* WerewolfGameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E376773B11B3C3D99CE5474 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98B937979B80D83939DB1732 /* GameManager.swift */,
+				2A330FC50215BF44F636C94D /* GameSettings.swift */,
+				CED8140AF61765FED43C9D76 /* GameTypes.swift */,
+				62D08CE6C370F6478EE0E45F /* Player.swift */,
+				DA823F8B73199179E495BF72 /* RoleType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		477CB46C9C5405E65E2D7C3A = {
+			isa = PBXGroup;
+			children = (
+				EB3D2A190642B3CB6C31E012 /* WerewolfGame */,
+				F42B2FB506E93937346A21EE /* WerewolfGameTests */,
+				18BC87D4AD3B1DD9DF32D0F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B320913A0DBA11AEC8E5940 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				C3C108D10FD81C2F63C44118 /* ConfirmSetupView.swift */,
+				14B2BE816CD27B3FA63D46E0 /* InitialSetupView.swift */,
+				721680B69261B20FBFBF1204 /* RoleSetupView.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		74150D94901DBEF50B715C11 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1843EB99DA4BD4A476EAFF90 /* GameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8A2C33090C3C2DDB40E2E07B /* Night */ = {
+			isa = PBXGroup;
+			children = (
+				75C615DF1DF3C12E1E6F4505 /* NightPhaseView.swift */,
+			);
+			path = Night;
+			sourceTree = "<group>";
+		};
+		A340A82D9B98137062FA4FC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				286BF1F297089D780B7637E1 /* ContentView.swift */,
+				ADB87532941276F9BA172A24 /* Day */,
+				FE1857339517457CEF9DE2C5 /* GameOver */,
+				AA5555555555555555555555 /* History */,
+				8A2C33090C3C2DDB40E2E07B /* Night */,
+				4B320913A0DBA11AEC8E5940 /* Setup */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA5555555555555555555555 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				AA4444444444444444444444 /* GameHistoryDetailView.swift */,
+				AA2222222222222222222222 /* GameHistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		ADB87532941276F9BA172A24 /* Day */ = {
+			isa = PBXGroup;
+			children = (
+				279073603C5639AC9E0096A4 /* DayPhaseView.swift */,
+			);
+			path = Day;
+			sourceTree = "<group>";
+		};
+		EB3D2A190642B3CB6C31E012 /* WerewolfGame */ = {
+			isa = PBXGroup;
+			children = (
+				995D959A3BEA193DEC6118E5 /* Assets.xcassets */,
+				BBA506216F759219F30096F2 /* WerewolfGameApp.swift */,
+				2E376773B11B3C3D99CE5474 /* Models */,
+				74150D94901DBEF50B715C11 /* ViewModels */,
+				A340A82D9B98137062FA4FC6 /* Views */,
+			);
+			path = WerewolfGame;
+			sourceTree = "<group>";
+		};
+		F42B2FB506E93937346A21EE /* WerewolfGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				B04CB07D7D44209273E529FE /* GameManagerTests.swift */,
+				0D3537BE925C3BC9DACE3FC9 /* PlayerTests.swift */,
+				D1D7CEAB3B350BA52E8CA508 /* RoleTypeTests.swift */,
+			);
+			path = WerewolfGameTests;
+			sourceTree = "<group>";
+		};
+		FE1857339517457CEF9DE2C5 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				3D3F7F16D2A0CB7CD6202E25 /* GameOverView.swift */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		35F20A8375B67A7E10051FF6 /* WerewolfGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3E6E8C8E2242F654DEE2EC4 /* Build configuration list for PBXNativeTarget "WerewolfGameTests" */;
+			buildPhases = (
+				2A10BC3FDCBBBC164C0ED1D4 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CCB2BFD4C4F1C31ECF8C0BF /* PBXTargetDependency */,
+			);
+			name = WerewolfGameTests;
+			packageProductDependencies = (
+			);
+			productName = WerewolfGameTests;
+			productReference = F365659D52AE1521ACCC1140 /* WerewolfGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5976DC47654AAD102A1514EA /* WerewolfGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FFCFD1D19888DF6C7FDF998 /* Build configuration list for PBXNativeTarget "WerewolfGame" */;
+			buildPhases = (
+				B5FE37378EED6193410EEA7E /* Sources */,
+				3B34C77557AE69BA8E17BCC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WerewolfGame;
+			packageProductDependencies = (
+			);
+			productName = WerewolfGame;
+			productReference = 9F73E3812220953E9F46AE51 /* WerewolfGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0AE3D6356969DF423C6559D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2630;
+			};
+			buildConfigurationList = 8B51555E5DC597932B83E7D3 /* Build configuration list for PBXProject "WerewolfGame" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 477CB46C9C5405E65E2D7C3A;
+			minimizedProjectReferenceProxies = 1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5976DC47654AAD102A1514EA /* WerewolfGame */,
+				35F20A8375B67A7E10051FF6 /* WerewolfGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B34C77557AE69BA8E17BCC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F35A54A2D2E6FFE2856413 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A10BC3FDCBBBC164C0ED1D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B406CE5D78295F86D2E7AB /* GameManagerTests.swift in Sources */,
+				60335445DA228A8860252AA3 /* PlayerTests.swift in Sources */,
+				3AB645D9AD712AFEFD7750C9 /* RoleTypeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5FE37378EED6193410EEA7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A35CA0EFF5986B6983C0411C /* ConfirmSetupView.swift in Sources */,
+				068804C0FC40B1CD9139B0B7 /* ContentView.swift in Sources */,
+				757B9837460F1ABB7A9F7141 /* DayPhaseView.swift in Sources */,
+				583AF76649525FC65361DF7A /* GameManager.swift in Sources */,
+				CB194981E5EA072A13009025 /* GameOverView.swift in Sources */,
+				62A3E5722441DCFC9A94A872 /* GameSettings.swift in Sources */,
+				AFDA477D07305B0E105BE104 /* GameTypes.swift in Sources */,
+				AA1111111111111111111111 /* GameHistoryView.swift in Sources */,
+				AA3333333333333333333333 /* GameHistoryDetailView.swift in Sources */,
+				ADAFFF524FC881A372CBD668 /* GameViewModel.swift in Sources */,
+				5F90BAF6443255B31D1F603E /* InitialSetupView.swift in Sources */,
+				3D8C58E2B0CD401505DCAF7C /* NightPhaseView.swift in Sources */,
+				54CFE18A4C697B7CA54D64D2 /* Player.swift in Sources */,
+				E68D70EDE08D495E0FA33A35 /* RoleSetupView.swift in Sources */,
+				C7F03EB051E6BDB214C46443 /* RoleType.swift in Sources */,
+				B5F4523365F56238DBF75384 /* WerewolfGameApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CCB2BFD4C4F1C31ECF8C0BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5976DC47654AAD102A1514EA /* WerewolfGame */;
+			targetProxy = FF1F7D230E548045C1C610C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D37A977072EC4D8C4C7819C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.werewolfgame.WerewolfGameTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WerewolfGame.app/WerewolfGame";
+			};
+			name = Debug;
+		};
+		326593F9162E3C2229264314 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 27VX84Y536;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.werewolfgame.WerewolfGame;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		353BBBB9679B1261118907E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		67E28C50B7A98B19A3884F11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BA96E4227A7F6A6C21C47912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 27VX84Y536;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.werewolfgame.WerewolfGame;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F6950295239C6FE40D7C9CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.werewolfgame.WerewolfGameTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WerewolfGame.app/WerewolfGame";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FFCFD1D19888DF6C7FDF998 /* Build configuration list for PBXNativeTarget "WerewolfGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				326593F9162E3C2229264314 /* Debug */,
+				BA96E4227A7F6A6C21C47912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8B51555E5DC597932B83E7D3 /* Build configuration list for PBXProject "WerewolfGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				353BBBB9679B1261118907E6 /* Debug */,
+				67E28C50B7A98B19A3884F11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D3E6E8C8E2242F654DEE2EC4 /* Build configuration list for PBXNativeTarget "WerewolfGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D37A977072EC4D8C4C7819C /* Debug */,
+				F6950295239C6FE40D7C9CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0AE3D6356969DF423C6559D /* Project object */;
+}

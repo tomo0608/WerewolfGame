@@ -1,0 +1,37 @@
+name: WerewolfGame
+options:
+  bundleIdPrefix: com.werewolfgame
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "26.3"
+
+targets:
+  WerewolfGame:
+    type: application
+    platform: iOS
+    sources:
+      - WerewolfGame
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        PRODUCT_BUNDLE_IDENTIFIER: com.werewolfgame.WerewolfGame
+        SWIFT_EMIT_LOC_STRINGS: YES
+
+  WerewolfGameTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - WerewolfGameTests
+    dependencies:
+      - target: WerewolfGame
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.werewolfgame.WerewolfGameTests
