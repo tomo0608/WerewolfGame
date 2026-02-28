@@ -289,7 +289,7 @@ struct DiscussionTimerView: View {
     let minutes: Int
     @State private var remainingSeconds: Int = 0
     @State private var isRunning: Bool = false
-    @State private var timer: Timer? = nil
+    @State private var timerTask: Task<Void, Never>? = nil
 
     var body: some View {
         VStack(spacing: 12) {
@@ -322,7 +322,7 @@ struct DiscussionTimerView: View {
             remainingSeconds = minutes * 60
         }
         .onDisappear {
-            timer?.invalidate()
+            timerTask?.cancel()
         }
     }
 
@@ -337,19 +337,24 @@ struct DiscussionTimerView: View {
             remainingSeconds = minutes * 60
         }
         isRunning = true
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if remainingSeconds > 0 {
-                remainingSeconds -= 1
-            } else {
-                stopTimer()
+        timerTask = Task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(1))
+                guard !Task.isCancelled else { break }
+                if remainingSeconds > 0 {
+                    remainingSeconds -= 1
+                } else {
+                    stopTimer()
+                    break
+                }
             }
         }
     }
 
     private func stopTimer() {
         isRunning = false
-        timer?.invalidate()
-        timer = nil
+        timerTask?.cancel()
+        timerTask = nil
     }
 
     private func resetTimer() {

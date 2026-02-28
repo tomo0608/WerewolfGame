@@ -201,7 +201,7 @@ class GameViewModel {
     }
 
     func proceedToNight() {
-        guard let gm = gameManager else { return }
+        guard gameManager != nil else { return }
         stage = .nightPhase
         currentPlayerIndex = 0
         nightActions = [:]
