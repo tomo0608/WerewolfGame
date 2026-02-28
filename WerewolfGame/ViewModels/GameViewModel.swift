@@ -44,6 +44,7 @@ class GameViewModel {
     var lastExecutionResult: ExecutionResult? = nil
     var lastNightVictims: [String] = []
     var lastNightImmoralSuicides: [String] = []
+    var lastNightDebug: [String] = []
     var discussionMinutes: Int = 3
 
     // MARK: - セットアップ操作
@@ -159,6 +160,7 @@ class GameViewModel {
         let results = gm.resolveNightActions(nightActions)
         lastNightVictims = results.victims
         lastNightImmoralSuicides = results.immoralSuicides
+        lastNightDebug = results.debug ?? []
 
         // ターンを進めて昼へ
         gm.turn += 1
@@ -237,6 +239,7 @@ class GameViewModel {
         lastExecutionResult = nil
         lastNightVictims = []
         lastNightImmoralSuicides = []
+        lastNightDebug = []
         discussionMinutes = 3
     }
 }
