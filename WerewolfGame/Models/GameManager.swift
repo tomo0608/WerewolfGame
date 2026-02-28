@@ -168,20 +168,8 @@ class GameManager {
         var immoralSuicides: [String] = []
         var retaliationVictim: String? = nil
 
-        // 妖狐処刑時の背徳者後追い
-        if players[playerIndex].role == .fox {
-            debugInfoList?.append("最後の妖狐が処刑されたため、背徳者の後追い処理を開始")
-            let immoralists = getAlivePlayers().filter { $0.role == .immoralist }
-            for immoral in immoralists {
-                if let idx = players.firstIndex(where: { $0.id == immoral.id }) {
-                    players[idx].kill(turn: turn, reason: .suicide)
-                    immoralSuicides.append(immoral.name)
-                    debugInfoList?.append("\(immoral.name)(背徳者) が後追い自殺")
-                }
-            }
-        }
         // 猫又処刑時の道連れ
-        else if players[playerIndex].role == .nekomata {
+        if players[playerIndex].role == .nekomata {
             let otherAlive = getAlivePlayers().filter { $0.id != players[playerIndex].id }
             if let target = otherAlive.randomElement() {
                 if let idx = players.firstIndex(where: { $0.id == target.id }) {
@@ -191,6 +179,19 @@ class GameManager {
                 }
             } else {
                 debugInfoList?.append("\(executedName)(猫又)が処刑されましたが、道連れにする生存者がいません")
+            }
+        }
+
+        // 妖狐が全滅した場合の背徳者後追い（処刑・道連れどちらで死んでも対応）
+        let aliveFoxes = getAlivePlayers().filter { $0.role == .fox }
+        let aliveImmoralists = getAlivePlayers().filter { $0.role == .immoralist }
+        if aliveFoxes.isEmpty && !aliveImmoralists.isEmpty {
+            for immoral in aliveImmoralists {
+                if let idx = players.firstIndex(where: { $0.id == immoral.id }) {
+                    players[idx].kill(turn: turn, reason: .suicide)
+                    immoralSuicides.append(immoral.name)
+                    debugInfoList?.append("\(immoral.name)(背徳者) が後追い自殺")
+                }
             }
         }
 

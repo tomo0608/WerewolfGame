@@ -506,6 +506,37 @@ final class GameManagerTests: XCTestCase {
         }
     }
 
+    func testNekomataRetaliationKillsFoxTriggersImmoralistSuicide() {
+        // Only fox and immoralist alive besides nekomata, so retaliation must hit one of them
+        // We loop to find a case where fox is the retaliation victim
+        for _ in 0..<100 {
+            let gm = makeGMWithRoles([
+                ("Alice", .nekomata), ("Bob", .fox),
+                ("Charlie", .immoralist), ("Dave", .werewolf)
+            ])
+            // Kill the werewolf so only fox and immoralist remain
+            gm.players[3].kill(turn: 1, reason: .attack)
+            gm.turn = 2
+
+            let result = gm.executeDayVote(["Alice": 2])
+
+            if result.retaliationVictim == "Bob" {
+                // Fox was killed by retaliation
+                let fox = gm.players.first(where: { $0.name == "Bob" })!
+                XCTAssertFalse(fox.isAlive)
+                XCTAssertEqual(fox.deathInfo?.reason, .retaliation)
+
+                // Immoralist should have committed suicide
+                let immoralist = gm.players.first(where: { $0.name == "Charlie" })!
+                XCTAssertFalse(immoralist.isAlive, "背徳者が後追い自殺すべき")
+                XCTAssertEqual(immoralist.deathInfo?.reason, .suicide)
+                XCTAssertTrue(result.immoralSuicides.contains("Charlie"))
+                return
+            }
+        }
+        XCTFail("100回試行しても妖狐が道連れにならなかった")
+    }
+
     func testNekomataVictoryCondition() {
         let gm = makeGMWithRoles([
             ("Alice", .nekomata), ("Bob", .villager),
