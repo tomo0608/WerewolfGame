@@ -7,12 +7,14 @@ class GameManager {
     var lastExecutedName: String? = nil
     var victoryTeam: Team? = nil
     let debugMode: Bool
+    let houseRules: HouseRules
 
-    init(playerNames: [String], debugMode: Bool = false) {
+    init(playerNames: [String], debugMode: Bool = false, houseRules: HouseRules = HouseRules()) {
         self.players = playerNames.enumerated().map { index, name in
             Player(id: index, name: name)
         }
         self.debugMode = debugMode
+        self.houseRules = houseRules
     }
 
     // MARK: - 役職割り当て

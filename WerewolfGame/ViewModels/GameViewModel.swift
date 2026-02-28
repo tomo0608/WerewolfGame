@@ -13,6 +13,7 @@ class GameViewModel {
     var playerNames: [String] = []
     var roleCounts: [RoleType: Int] = GameSettings.defaultRoleCounts
     var debugMode: Bool = false
+    var houseRules = HouseRules()
     var errorMessage: String = ""
 
     // MARK: - ゲーム状態
@@ -99,7 +100,7 @@ class GameViewModel {
             roles.append(contentsOf: Array(repeating: role, count: count))
         }
 
-        let gm = GameManager(playerNames: playerNames, debugMode: debugMode)
+        let gm = GameManager(playerNames: playerNames, debugMode: debugMode, houseRules: houseRules)
         gm.assignRoles(roles)
         gameManager = gm
 
@@ -217,6 +218,7 @@ class GameViewModel {
         playerNames = []
         roleCounts = GameSettings.defaultRoleCounts
         debugMode = false
+        houseRules = HouseRules()
         errorMessage = ""
         gameManager = nil
         currentPlayerIndex = 0
