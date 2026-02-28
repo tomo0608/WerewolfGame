@@ -308,7 +308,6 @@ struct DayPhaseView: View {
                 debugInfoBox(title: "夜フェーズ詳細", items: viewModel.lastNightDebug)
             }
 
-            // Show all player roles
             if let gm = viewModel.gameManager {
                 debugInfoBox(
                     title: "全プレイヤー役職",
@@ -324,7 +323,7 @@ struct DayPhaseView: View {
                 .font(.caption)
                 .fontWeight(.semibold)
                 .foregroundStyle(.orange)
-            ForEach(items, id: \.self) { item in
+            ForEach(Array(items.enumerated()), id: \.offset) { _, item in
                 Text("  · \(item)")
                     .font(.caption2)
                     .foregroundStyle(.gray)
