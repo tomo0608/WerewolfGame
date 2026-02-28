@@ -96,6 +96,25 @@ struct NightPhaseView: View {
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 12).fill(.blue.opacity(0.1)))
 
+                // 狂信者には人狼プレイヤーを表示
+                if player.role == .fanatic {
+                    let wolfNames = viewModel.aliveWerewolfNames
+                    if !wolfNames.isEmpty {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Label("人狼は以下のプレイヤーです", systemImage: "pawprint.fill")
+                                .font(.headline)
+                                .foregroundStyle(.red)
+                            ForEach(wolfNames, id: \.self) { name in
+                                Text("・\(name)")
+                                    .font(.body)
+                            }
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(RoundedRectangle(cornerRadius: 12).fill(.red.opacity(0.1)))
+                    }
+                }
+
                 let turn = viewModel.gameManager?.turn ?? 1
                 if player.role.hasNightAction(turn: turn) {
                     Button("アクションへ") {

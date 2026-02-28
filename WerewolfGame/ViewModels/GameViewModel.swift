@@ -113,6 +113,12 @@ class GameViewModel {
 
     // MARK: - 夜フェーズ操作
 
+    /// 生存中の人狼プレイヤー名（狂信者への表示用）
+    var aliveWerewolfNames: [String] {
+        guard let gm = gameManager else { return [] }
+        return gm.getAlivePlayers().filter { $0.role == .werewolf }.map(\.name)
+    }
+
     /// 現在アクション中のプレイヤー (nil = 全員完了)
     var currentNightPlayer: Player? {
         guard let gm = gameManager else { return nil }
