@@ -52,15 +52,13 @@ struct DayPhaseView: View {
                     systemImage: "exclamationmark.triangle.fill"
                 )
                 .foregroundStyle(.red)
-
-                if viewModel.debugMode, !viewModel.lastNightImmoralSuicides.isEmpty {
-                    Text("DEBUG: 妖狐が死亡したため、\(viewModel.lastNightImmoralSuicides.joined(separator: ", ")) が後を追いました。")
-                        .font(.caption)
-                        .foregroundStyle(.gray)
-                }
             } else {
                 Label("昨晩は誰も死亡しませんでした。", systemImage: "checkmark.circle")
                     .foregroundStyle(.blue)
+            }
+
+            if viewModel.debugMode {
+                debugNightSection
             }
         }
     }
@@ -89,14 +87,23 @@ struct DayPhaseView: View {
     // MARK: - 生存者
 
     private var survivorSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        let alive = viewModel.gameManager?.getAlivePlayers() ?? []
+        return VStack(alignment: .leading, spacing: 8) {
             Text("生存者")
                 .font(.headline)
 
-            let alive = viewModel.gameManager?.getAlivePlayers() ?? []
-            let names = alive.map(\.name).joined(separator: ", ")
-            Text("\(alive.count) 人: \(names)")
-                .foregroundStyle(.secondary)
+            if viewModel.debugMode {
+                Text("\(alive.count) 人:")
+                    .foregroundStyle(.secondary)
+                ForEach(alive, id: \.id) { player in
+                    Text("  \(player.name) — \(player.role.displayName)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                Text("\(alive.count) 人: \(alive.map(\.name).joined(separator: ", "))")
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 
@@ -202,6 +209,23 @@ struct DayPhaseView: View {
                     }
                 }
 
+                if viewModel.debugMode {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("DEBUG: 投票内訳")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.orange)
+                        ForEach(viewModel.dayVotes.sorted(by: { $0.key < $1.key }), id: \.key) { voter, target in
+                            Text("  · \(voter) → \(target)")
+                                .font(.caption2)
+                                .foregroundStyle(.gray)
+                        }
+                    }
+                    .padding(8)
+                    .background(Color.orange.opacity(0.08))
+                    .cornerRadius(6)
+                }
+
                 if !viewModel.executionProcessed {
                     Button("投票を締め切り、処刑を実行する") {
                         viewModel.executeIndividualVotes()
@@ -251,6 +275,10 @@ struct DayPhaseView: View {
                 }
             }
 
+            if viewModel.debugMode, let result = viewModel.lastExecutionResult, let debug = result.debug, !debug.isEmpty {
+                debugInfoBox(title: "処刑デバッグ情報", items: [debug])
+            }
+
             // 処刑後の勝利判定
             if let victory = viewModel.checkVictoryAfterExecution() {
                 Text(victory.message)
@@ -270,6 +298,41 @@ struct DayPhaseView: View {
                 .padding(.top)
             }
         }
+    }
+
+    // MARK: - デバッグ表示
+
+    private var debugNightSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if !viewModel.lastNightDebug.isEmpty {
+                debugInfoBox(title: "夜フェーズ詳細", items: viewModel.lastNightDebug)
+            }
+
+            // Show all player roles
+            if let gm = viewModel.gameManager {
+                debugInfoBox(
+                    title: "全プレイヤー役職",
+                    items: gm.players.map { "\($0.name): \($0.role.displayName) [\($0.isAlive ? "生存" : "死亡")]" }
+                )
+            }
+        }
+    }
+
+    private func debugInfoBox(title: String, items: [String]) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text("DEBUG: \(title)")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundStyle(.orange)
+            ForEach(items, id: \.self) { item in
+                Text("  · \(item)")
+                    .font(.caption2)
+                    .foregroundStyle(.gray)
+            }
+        }
+        .padding(8)
+        .background(Color.orange.opacity(0.08))
+        .cornerRadius(6)
     }
 
     // MARK: - ヘルパー
