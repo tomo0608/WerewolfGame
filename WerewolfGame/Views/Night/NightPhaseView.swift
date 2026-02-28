@@ -97,16 +97,15 @@ struct NightPhaseView: View {
                 .background(RoundedRectangle(cornerRadius: 12).fill(.blue.opacity(0.1)))
 
                 // 狂信者には人狼プレイヤーを表示
-                if player.role == .fanatic,
-                   let gm = viewModel.gameManager {
-                    let wolves = gm.getAlivePlayers().filter { $0.role == .werewolf }
-                    if !wolves.isEmpty {
+                if player.role == .fanatic {
+                    let wolfNames = viewModel.aliveWerewolfNames
+                    if !wolfNames.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
                             Label("人狼は以下のプレイヤーです", systemImage: "pawprint.fill")
                                 .font(.headline)
                                 .foregroundStyle(.red)
-                            ForEach(wolves, id: \.id) { wolf in
-                                Text("・\(wolf.name)")
+                            ForEach(wolfNames, id: \.self) { name in
+                                Text("・\(name)")
                                     .font(.body)
                             }
                         }
