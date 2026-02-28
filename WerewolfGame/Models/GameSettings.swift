@@ -1,5 +1,9 @@
 import Foundation
 
+struct HouseRules: Codable, Equatable {
+    // 個別ルールは後続Issueで追加。ここでは空の構造体を用意。
+}
+
 enum GameSettings {
     static let defaultRoleCounts: [RoleType: Int] = [
         .werewolf: 2,

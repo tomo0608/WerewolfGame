@@ -7,8 +7,8 @@ final class GameManagerTests: XCTestCase {
 
     // MARK: - ヘルパー
 
-    private func makeGM(_ names: [String]? = nil) -> GameManager {
-        GameManager(playerNames: names ?? playerNames)
+    private func makeGM(_ names: [String]? = nil, houseRules: HouseRules = HouseRules()) -> GameManager {
+        GameManager(playerNames: names ?? playerNames, houseRules: houseRules)
     }
 
     private func assignFixedRoles(_ gm: GameManager, roles: [(String, RoleType)]) {
@@ -19,9 +19,9 @@ final class GameManagerTests: XCTestCase {
         }
     }
 
-    private func makeGMWithRoles(_ roles: [(String, RoleType)]) -> GameManager {
+    private func makeGMWithRoles(_ roles: [(String, RoleType)], houseRules: HouseRules = HouseRules()) -> GameManager {
         let names = roles.map { $0.0 }
-        let gm = GameManager(playerNames: names)
+        let gm = GameManager(playerNames: names, houseRules: houseRules)
         for (i, (_, role)) in roles.enumerated() {
             gm.players[i].role = role
         }
@@ -29,6 +29,12 @@ final class GameManagerTests: XCTestCase {
     }
 
     // MARK: - 初期化テスト
+
+    func testInitWithHouseRules() {
+        let rules = HouseRules()
+        let gm = makeGM(houseRules: rules)
+        XCTAssertEqual(gm.houseRules, rules)
+    }
 
     func testInitialization() {
         let gm = makeGM()
