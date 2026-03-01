@@ -79,9 +79,12 @@ enum RoleType: String, CaseIterable, Identifiable, Codable {
     }
 
     /// 指定ターンで夜アクションを持つかどうか
-    func hasNightAction(turn: Int) -> Bool {
+    func hasNightAction(turn: Int, houseRules: HouseRules = HouseRules()) -> Bool {
         switch self {
         case .seer, .fakeSeer:
+            if turn == 1 && houseRules.firstDaySeer == .disabled {
+                return false
+            }
             return true
         case .werewolf, .knight:
             return turn > 1

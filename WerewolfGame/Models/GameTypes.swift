@@ -57,6 +57,14 @@ struct DeathInfo: Codable {
     let reason: DeathReason
 }
 
+// MARK: - 初日占い設定
+
+enum FirstDaySeerOption: String, CaseIterable, Codable {
+    case enabled = "有効"
+    case disabled = "無効"
+    case randomWhite = "ランダム白通知"
+}
+
 // MARK: - 夜アクション種別
 
 enum ActionType: String {

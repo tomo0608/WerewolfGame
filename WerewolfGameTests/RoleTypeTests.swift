@@ -123,6 +123,38 @@ final class RoleTypeTests: XCTestCase {
         XCTAssertFalse(role.hasNightAction(turn: 2))
     }
 
+    // MARK: - 初日占い設定テスト
+
+    func testSeerHasNightActionWithFirstDaySeerEnabled() {
+        let rules = HouseRules(firstDaySeer: .enabled)
+        XCTAssertTrue(RoleType.seer.hasNightAction(turn: 1, houseRules: rules))
+        XCTAssertTrue(RoleType.seer.hasNightAction(turn: 2, houseRules: rules))
+        XCTAssertTrue(RoleType.fakeSeer.hasNightAction(turn: 1, houseRules: rules))
+    }
+
+    func testSeerHasNoNightActionWithFirstDaySeerDisabled() {
+        let rules = HouseRules(firstDaySeer: .disabled)
+        XCTAssertFalse(RoleType.seer.hasNightAction(turn: 1, houseRules: rules))
+        XCTAssertTrue(RoleType.seer.hasNightAction(turn: 2, houseRules: rules))
+        XCTAssertFalse(RoleType.fakeSeer.hasNightAction(turn: 1, houseRules: rules))
+        XCTAssertTrue(RoleType.fakeSeer.hasNightAction(turn: 2, houseRules: rules))
+    }
+
+    func testSeerHasNightActionWithFirstDaySeerRandomWhite() {
+        let rules = HouseRules(firstDaySeer: .randomWhite)
+        // randomWhite still has a night action (shows random white result)
+        XCTAssertTrue(RoleType.seer.hasNightAction(turn: 1, houseRules: rules))
+        XCTAssertTrue(RoleType.seer.hasNightAction(turn: 2, houseRules: rules))
+        XCTAssertTrue(RoleType.fakeSeer.hasNightAction(turn: 1, houseRules: rules))
+    }
+
+    func testFirstDaySeerOptionDoesNotAffectOtherRoles() {
+        let rules = HouseRules(firstDaySeer: .disabled)
+        XCTAssertFalse(RoleType.werewolf.hasNightAction(turn: 1, houseRules: rules))
+        XCTAssertTrue(RoleType.werewolf.hasNightAction(turn: 2, houseRules: rules))
+        XCTAssertFalse(RoleType.villager.hasNightAction(turn: 1, houseRules: rules))
+    }
+
     func testImmoralistAttributes() {
         let role = RoleType.immoralist
         XCTAssertEqual(role.rawValue, "背徳者")

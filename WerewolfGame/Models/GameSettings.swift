@@ -2,6 +2,7 @@ import Foundation
 
 struct HouseRules: Codable, Equatable {
     var allowConsecutiveGuard: Bool = true
+    var firstDaySeer: FirstDaySeerOption = .enabled
 }
 
 enum GameSettings {
