@@ -257,8 +257,7 @@ private struct ActionSelectContent: View {
             return alive.filter { $0.name != player.name }.map(\.name)
         case .knight:
             var targets = alive.filter { $0.name != player.name }
-            if let gm = viewModel.gameManager,
-               !gm.houseRules.allowConsecutiveGuard,
+            if !gm.houseRules.allowConsecutiveGuard,
                let lastTarget = gm.lastGuardTargets[player.name] {
                 targets = targets.filter { $0.name != lastTarget }
             }
