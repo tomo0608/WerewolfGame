@@ -629,4 +629,20 @@ final class GameManagerTests: XCTestCase {
         ])
         XCTAssertEqual(gm.lastGuardTargets["Bob"], "Dave")
     }
+
+    // MARK: - 初日占い設定
+
+    func testFirstDaySeerDefaultIsEnabled() {
+        let rules = HouseRules()
+        XCTAssertEqual(rules.firstDaySeer, .enabled)
+    }
+
+    func testFirstDaySeerDisabledHouseRules() {
+        let rules = HouseRules(firstDaySeer: .disabled)
+        let gm = makeGMWithRoles([
+            ("Alice", .seer), ("Bob", .fox),
+            ("Charlie", .villager), ("Dave", .villager), ("Eve", .villager),
+        ], houseRules: rules)
+        XCTAssertEqual(gm.houseRules.firstDaySeer, .disabled)
+    }
 }

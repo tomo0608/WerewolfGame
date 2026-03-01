@@ -116,13 +116,19 @@ struct NightPhaseView: View {
                 }
 
                 let turn = viewModel.gameManager?.turn ?? 1
-                if player.role.hasNightAction(turn: turn) {
+                let houseRules = viewModel.houseRules
+                if player.role.hasNightAction(turn: turn, houseRules: houseRules) {
                     Button("アクションへ") {
                         if player.role == .medium {
                             // 霊媒師は対象選択不要 → 直接結果表示
                             viewModel.confirmNightAction(
                                 action: NightAction(type: .medium, target: nil)
                             )
+                        } else if (player.role == .seer || player.role == .fakeSeer)
+                                    && turn == 1
+                                    && houseRules.firstDaySeer == .randomWhite {
+                            // ランダム白通知: 対象選択不要 → ランダムな対象で白結果
+                            viewModel.confirmFirstDaySeerRandomWhite(player: player)
                         } else {
                             viewModel.nightPlayerState = .actionSelect
                         }
@@ -280,7 +286,19 @@ private struct ActionResultContent: View {
 
             let action = viewModel.nightActions[player.name]
 
-            if let action = action {
+            // 初日ランダム白通知の場合
+            if let randomTarget = viewModel.firstDaySeerRandomTarget,
+               (player.role == .seer || player.role == .fakeSeer) {
+                VStack(spacing: 12) {
+                    Text("あなたは **\(randomTarget)** さんを選択しました。")
+                    HStack {
+                        Image(systemName: "sparkles")
+                        Text("占い結果: **\(randomTarget)** さんは **村人** です。")
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).fill(.blue.opacity(0.1)))
+                }
+            } else if let action = action {
                 switch action.type {
                 case .seer:
                     seerResultView(action: action)

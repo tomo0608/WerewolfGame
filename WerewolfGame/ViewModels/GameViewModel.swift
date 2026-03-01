@@ -128,9 +128,22 @@ class GameViewModel {
         return alive[currentPlayerIndex]
     }
 
+    /// 初日ランダム白通知の対象プレイヤー名（結果表示用）
+    var firstDaySeerRandomTarget: String? = nil
+
     func confirmNightAction(action: NightAction) {
         guard let player = currentNightPlayer else { return }
         nightActions[player.name] = action
+        nightPlayerState = .actionResult
+    }
+
+    /// 初日占い「ランダム白通知」: ランダムな対象を選び、白結果を表示する（実際の占いは行わない）
+    func confirmFirstDaySeerRandomWhite(player: Player) {
+        guard let gm = gameManager else { return }
+        let candidates = gm.getAlivePlayers().filter { $0.name != player.name }
+        let randomTarget = candidates.randomElement()?.name
+        firstDaySeerRandomTarget = randomTarget
+        nightActions[player.name] = NightAction(type: .none, target: nil)
         nightPlayerState = .actionResult
     }
 
@@ -209,6 +222,7 @@ class GameViewModel {
         nightActions = [:]
         nightPlayerState = .handoff
         roleRevealed = false
+        firstDaySeerRandomTarget = nil
         dayVotes = [:]
         executionProcessed = false
         lastExecutionResult = nil
@@ -233,6 +247,7 @@ class GameViewModel {
         nightActions = [:]
         nightPlayerState = .handoff
         roleRevealed = false
+        firstDaySeerRandomTarget = nil
         dayVotes = [:]
         batchVoteMode = false
         executionProcessed = false

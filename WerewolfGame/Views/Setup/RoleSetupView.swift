@@ -41,6 +41,12 @@ struct RoleSetupView: View {
                     get: { !viewModel.houseRules.allowConsecutiveGuard },
                     set: { viewModel.houseRules.allowConsecutiveGuard = !$0 }
                 ))
+
+                Picker("初日占い", selection: $viewModel.houseRules.firstDaySeer) {
+                    ForEach(FirstDaySeerOption.allCases, id: \.self) { option in
+                        Text(option.rawValue).tag(option)
+                    }
+                }
             }
 
             // MARK: - 残り人数
