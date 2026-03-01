@@ -256,7 +256,13 @@ private struct ActionSelectContent: View {
         case .seer, .fakeSeer:
             return alive.filter { $0.name != player.name }.map(\.name)
         case .knight:
-            return alive.filter { $0.name != player.name }.map(\.name)
+            var targets = alive.filter { $0.name != player.name }
+            if let gm = viewModel.gameManager,
+               !gm.houseRules.allowConsecutiveGuard,
+               let lastTarget = gm.lastGuardTargets[player.name] {
+                targets = targets.filter { $0.name != lastTarget }
+            }
+            return targets.map(\.name)
         default:
             return []
         }

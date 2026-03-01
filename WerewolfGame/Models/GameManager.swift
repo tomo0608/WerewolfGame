@@ -6,6 +6,7 @@ class GameManager {
     var lastNightVictimNameList: [String] = []
     var lastExecutedName: String? = nil
     var victoryTeam: Team? = nil
+    var lastGuardTargets: [String: String] = [:]
     let debugMode: Bool
     let houseRules: HouseRules
 
@@ -255,6 +256,7 @@ class GameManager {
             case .guard:
                 if let targetName = action.target {
                     guardTargets.insert(targetName)
+                    lastGuardTargets[playerName] = targetName
                     debugInfo?.append("\(playerName)が\(targetName)を護衛")
                 }
 

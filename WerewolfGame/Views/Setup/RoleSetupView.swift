@@ -35,6 +35,14 @@ struct RoleSetupView: View {
                 }
             }
 
+            // MARK: - ハウスルール
+            Section("ハウスルール") {
+                Toggle("連続ガード禁止", isOn: Binding(
+                    get: { !viewModel.houseRules.allowConsecutiveGuard },
+                    set: { viewModel.houseRules.allowConsecutiveGuard = !$0 }
+                ))
+            }
+
             // MARK: - 残り人数
             Section {
                 let remaining = viewModel.remainingRoles

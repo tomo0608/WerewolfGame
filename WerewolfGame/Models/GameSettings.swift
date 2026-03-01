@@ -1,7 +1,7 @@
 import Foundation
 
 struct HouseRules: Codable, Equatable {
-    // 個別ルールは後続Issueで追加。ここでは空の構造体を用意。
+    var allowConsecutiveGuard: Bool = true
 }
 
 enum GameSettings {

@@ -580,4 +580,53 @@ final class GameManagerTests: XCTestCase {
         XCTAssertEqual(resultKnight.status, "最終日生存")
         XCTAssertTrue(resultKnight.isWinner)
     }
+
+    // MARK: - 連続ガード禁止
+
+    func testLastGuardTargetIsTracked() {
+        let gm = makeGMWithRoles([
+            ("Alice", .werewolf), ("Bob", .knight),
+            ("Charlie", .villager), ("Dave", .villager), ("Eve", .villager),
+        ])
+        gm.turn = 2
+
+        _ = gm.resolveNightActions([
+            "Alice": NightAction(type: .attack, target: "Charlie"),
+            "Bob": NightAction(type: .guard, target: "Charlie"),
+        ])
+
+        XCTAssertEqual(gm.lastGuardTargets["Bob"], "Charlie")
+    }
+
+    func testConsecutiveGuardAllowedByDefault() {
+        let gm = makeGMWithRoles([
+            ("Alice", .werewolf), ("Bob", .knight),
+            ("Charlie", .villager), ("Dave", .villager), ("Eve", .villager),
+        ])
+        XCTAssertTrue(gm.houseRules.allowConsecutiveGuard)
+    }
+
+    func testConsecutiveGuardDisabledTracksLastTarget() {
+        let rules = HouseRules(allowConsecutiveGuard: false)
+        let gm = makeGMWithRoles([
+            ("Alice", .werewolf), ("Bob", .knight),
+            ("Charlie", .villager), ("Dave", .villager), ("Eve", .villager),
+        ], houseRules: rules)
+
+        // Night 1 (turn 2): Bob guards Charlie
+        gm.turn = 2
+        _ = gm.resolveNightActions([
+            "Alice": NightAction(type: .attack, target: "Dave"),
+            "Bob": NightAction(type: .guard, target: "Charlie"),
+        ])
+        XCTAssertEqual(gm.lastGuardTargets["Bob"], "Charlie")
+
+        // Night 2 (turn 3): Bob guards Dave (different target)
+        gm.turn = 3
+        _ = gm.resolveNightActions([
+            "Alice": NightAction(type: .attack, target: "Charlie"),
+            "Bob": NightAction(type: .guard, target: "Dave"),
+        ])
+        XCTAssertEqual(gm.lastGuardTargets["Bob"], "Dave")
+    }
 }
